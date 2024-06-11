@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>  
+<title>My Second Web Page</title>
+
+<link rel="stylesheet" href="demo.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $("#btn").click(function(event){
+            // Fetch JSON data and update the table
+            $.getJSON('data.json', function(data) {
+                updateTable(data);
+            });
+        });
+
+        function updateTable(data) {
+            $("caption").text(data.title);
+            $("#table-head").html(
+                `<tr>
+                    <th>${data.heading}</th>
+                    <th>${data.head1}</th>
+                    <th>${data.head2}</th>
+                    <th>${data.head3}</th>
+                    <th>${data.head4}</th>
+                </tr>`
+            );
+            $("#table-body").html(
+                `<tr>
+                    <th>${data.subheadcal}</th>
+                    <th>${data.cal1}</th>
+                    <th>${data.cal2}</th>
+                    <th>${data.cal3}</th>
+                    <th>${data.cal4}</th>
+                </tr>`
+            );
+            $("#table-foot-fat").html(
+                `<tr>
+                    <th>${data.subheadfat}</th>
+                    <th>${data.fat1}</th>
+                    <th>${data.fat2}</th>
+                    <th>${data.fat3}</th>
+                    <th>${data.fat4}</th>
+                </tr>`
+            );
+            $("#table-foot-vendor").html(
+                `<tr>
+                    <th>${data.subheadven}</th>
+                    <th>${data.ven1}</th>
+                    <th>${data.ven2}</th>
+                    <th>${data.ven3}</th>
+                    <th>${data.ven4}</th>
+                </tr>`
+            );
+        }
+    });
+ </script>
+</head> 	
+<body>
+
+<div id="container">
+
+<header>My Web Site Brand</header>
+<nav>
+	<ul>
+    <li><a href="js-demo2.html">Home</a></li>
+    <li><a href="js-demo2b.html">About</a></li>
+    <li><a href="js-demo2d.html">Gallery</a></li>
+    <li><a href="js-demo2c.html">Contact</a></li>
+	</ul>
+</nav>
+
+<main>
+  <h1>My Second Heading</h1>
+  <p>My Second paragraph.</p>
+
+  
+  <table>
+    <caption>Calories Comparison of Popular Burgers</caption>
+    <thead id="table-head">
+        <tr>
+            <th>Type</th>
+            <th>Big Mac</th>
+            <th>Whopper</th>
+            <th>Dave's Double</th>
+            <th>Whataburger</th>
+        </tr>
+    </thead>
+    <tbody id="table-body">
+        <tr>
+            <th>Calories</th>
+            <th>563</th>
+            <th>677</th>
+            <th>870</th>
+            <th>590</th>
+        </tr>
+    </tbody>
+    <tfoot id="table-foot-fat">
+        <tr>
+            <th>Fat</th>
+            <th>30gm</th>
+            <th>40gm</th>
+            <th>51gm</th>
+            <th>25gm</th>
+        </tr>
+    </tfoot>
+    <tfoot id="table-foot-vendor">
+        <tr>
+            <th>Vendor</th>
+            <th>MacD</th>
+            <th>Burger King</th>
+            <th>Wendys</th>
+            <th>Whataburger</th>
+        </tr>
+    </tfoot>
+</table>
+    <input type = "button" id = "btn" value = "Load Data" style="margin-top:20px;" />
+    <script type="text/javascript"> </Script>
+</main>
+
+<footer>&copy; Copyright 2020</footer>
+
+</div>
+
+</body>
+</html>
